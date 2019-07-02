@@ -54,7 +54,7 @@ public class MultiPageTest {
 		p1.confirmEmailAddress("John.Doe@selenium.com");
 		p1.phoneNumber("410-812-4512");
 		try {                  
-			p1.takeScreenShot("result//Multipage1.png");
+			p1.takeScreenShot("./Report/Multipage1.png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -68,7 +68,7 @@ public class MultiPageTest {
 		p2.zip("99530");
 		p2.country("United States");
 		try {
-			p2.takeScreenShot("C://java-workspace//TestSelinium//src//test//java//com//junit//result//Multipage2.png");
+			p2.takeScreenShot("./Report/Multipage2.png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,7 +79,7 @@ public class MultiPageTest {
 		p3.department("Technical Support");
 		p3.message("This is a test to navigate http://bootcamp.ngc.training using Selenium");
 		try {
-			p3.takeScreenShot("C://java-workspace//TestSelinium//src//test//java//com//junit//result//Multipage3.png");
+			p3.takeScreenShot("./Report/Multipage3.png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -89,7 +89,7 @@ public class MultiPageTest {
 		PageFour p4 = new PageFour(driver);
 		p4.agree();
 		try {
-			p4.takeScreenShot("C://java-workspace//TestSelinium//src//test//java//com//junit//result//Multipage4.png");
+			p4.takeScreenShot("./Report/Multipage4.png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -101,7 +101,7 @@ public class MultiPageTest {
 		System.out.println(element.getText());
 		Assert.assertEquals("Click OK to return to the Main Dashboard", element.getText());
 		try {
-			p4.takeScreenShot("C://java-workspace//TestSelinium//src//test//java//com//junit//result//MultipageAfterSubmit.png");
+			p4.takeScreenShot("./Report/MultipageAfterSubmit.png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -132,7 +132,7 @@ public class MultiPageTest {
 		pizza.selectTopping("Peppers");
 		pizza.instructions("Please hurry!!! I am hungry");
 		try {
-			pizza.takeScreenShot("C://java-workspace//TestSelinium//src//test//java//com//junit//result//pizzaBeforeOrder.png");
+			pizza.takeScreenShot("./Report/pizzaBeforeOrder.png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -146,7 +146,7 @@ public class MultiPageTest {
 		System.out.println(element.getText());
 		Assert.assertEquals("Click OK to return to the Main Dashboard", element.getText());
 		try {
-			pizza.takeScreenShot("C://java-workspace//TestSelinium//src//test//java//com//junit//result//pizzaAfterOrder.png");
+			pizza.takeScreenShot("./Report/pizzaAfterOrder.png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
