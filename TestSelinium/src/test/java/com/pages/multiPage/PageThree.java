@@ -16,6 +16,12 @@ public class PageThree extends BasePage {
 		}
 	}
 
+	public PageThree() {
+		if (getDriver() == null) {
+			setDriver("chrome");
+		}
+	}
+
 	public void department(String department) {
 		selectVisibleText("department", departmentlLocator, 10, department);
 	}

@@ -14,6 +14,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -22,6 +23,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 	private static WebDriver driver = null;
+	private static String browser = null;
+
+	public static void setDriver(String browser) {
+		setBrowser(browser);
+		if (browser.equals("chrome")) {
+			System.getProperty("webdriver.chrome.driver", "chromedriver.exe");
+			driver = new ChromeDriver();
+		}
+	}
+
+	public static void homePage(String url) {
+		driver.get(url);
+	}
 
 	public void wait(WebDriver driver, WebElement element, int timeout) {
 		new WebDriverWait(driver, timeout).until(ExpectedConditions.visibilityOf(element));
@@ -84,7 +98,7 @@ public class BasePage {
 		}
 	}
 
-	public WebDriver getDriver() {
+	public static WebDriver getDriver() {
 		return driver;
 	}
 
@@ -97,5 +111,17 @@ public class BasePage {
 		File SrcFile = screenShot.getScreenshotAs(OutputType.FILE);
 		File destFile = new File(file);
 		FileUtils.copyFile(SrcFile, destFile);
+	}
+
+	public static String getBrowser() {
+		return browser;
+	}
+
+	public static void setBrowser(String browser) {
+		BasePage.browser = browser;
+	}
+
+	public static void TakeDown() {
+		getDriver().quit();
 	}
 }

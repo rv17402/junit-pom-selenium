@@ -19,6 +19,12 @@ public class PageTwo extends BasePage {
 		}
 	}
 
+	public PageTwo() {
+		if (getDriver() == null) {
+			setDriver("chrome");
+		}
+	}
+
 	public void address1(String address1) {
 		sendKeys(getElement("address1", address1Locator, 10), address1);
 	}

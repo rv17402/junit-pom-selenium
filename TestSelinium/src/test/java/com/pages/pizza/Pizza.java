@@ -2,6 +2,9 @@ package com.pages.pizza;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pages.BasePage;
 
@@ -20,10 +23,18 @@ public class Pizza extends BasePage {
 	By toppingsLocator = By.xpath(("//*[contains(@class,'form-check-label')]"));
 	By instructionsLocator = By.id("instructions");
 	By orderLocator = By.xpath("//*[@id='react-app']/div/div/div/div[2]/div/div[2]/div/form/div[10]/button");
+	By pizzaHomeLocator = By.xpath(("//*[@id=\'pizzaPageLink\']"));
+	By verifyLocator = By.xpath("/html/body/div[2]/div/div[1]/div/div/div[2]");
 	
 	public Pizza(WebDriver driver) {
 		if (getDriver() == null || !getDriver().equals(driver)) {
 			setDriver(driver);
+		}
+	}
+
+	public Pizza() {
+		if (getDriver() == null) {
+			setDriver("chrome");
 		}
 	}
 
@@ -78,6 +89,16 @@ public class Pizza extends BasePage {
 
 	public void selectTopping(String value) {
 		selectFromList("toppings", toppingsLocator, 10, value);
+	}
+
+	public void pizzaLink() {
+		getDriver().findElement(pizzaHomeLocator).click();
+	}
+
+	public String verify() {
+		WebElement element = getDriver().findElement(verifyLocator);
+		new WebDriverWait(getDriver(), 20).until(ExpectedConditions.visibilityOf(element));
+		return element.getText();
 	}
 
 }
